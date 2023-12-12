@@ -28,7 +28,7 @@
     NbLED_ON=NUMPIXELS;
     color=orange;
     brightness=200;
-  }
+  } //pour savoir si la barette a reçu une nouvelle valeur depuis son initialisation, on l'initialise orange avec toutes les led allumées, set qu'elle ne peut pas avoir dans le fonctionement normal du jardin
 
   int barette_LED::getNbLED_ON (){return this->NbLED_ON;}
 
@@ -44,16 +44,16 @@
   
   void barette_LED::refresh() {
     Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, BARETTEPIN, NEO_GRB + NEO_KHZ800);
-    int a =0;
-    int b=0;
-    int c=0;
+    int a =0;//rouge
+    int b=0;//vert
+    int c=0;//bleue
     if (color==orange){a=150;b=150;}
     else if (color==red){a=150;}
     else if (color==green){b=150;}
     else if (color==blue){c=150;}
     pixels.setBrightness(this->brightness); 
     pixels.begin();
-    for (int i = 0; i < NUMPIXELS; i++) {
+    for (int i = 0; i < NUMPIXELS; i++) { //on actualise 1 à 1 tous les pixels
       if (i<NbLED_ON) {
         pixels.setPixelColor(i, pixels.Color(a, b, c));
       }
@@ -66,8 +66,8 @@
 
 
 //ecran_LED 
-  ecran_LED::ecran_LED() : lcd() {
-    this->message = "rien";
+  ecran_LED::ecran_LED() : lcd()  //on inialise de tel façon qu'on puisse reconaître si l'écran est dans ces paramètres initiaux
+    this->message = "init";
     this->color = orange;
     this->columns = 3;
     this->rows = 2;
@@ -81,9 +81,9 @@
   void ecran_LED::setdim (int L,int l){this->columns=L;this->rows=l;}
 
   void ecran_LED::refresh(){
-  int a =0;
-  int b=0;
-  int c=0;
+  int a =0;//rouge
+  int b=0;//vert
+  int c=0;//bleue
   if (color==orange){a=150;b=150;}
   else if (color==red){a=150;}
   else if (color==green){b=150;}
