@@ -13,12 +13,13 @@
 #define green          'g'
 #define blue           'b'
 
+//la classe LED sert de driver à l'écran et à la barette, ce qui y est affiché est controller par la classe s_management
 
 class LED {
     protected :
     char color;
     public:
-    virtual void refresh();
+    virtual void refresh(); //refresh() permet à la barette ou à l'écran d'actualiser son affichage en fonction des paramètres qui ont changé
     void setcolor(char c);
     char getcolor();
 };
@@ -29,7 +30,7 @@ class LED {
   
   private :
 
-  int NbLED_ON;
+  int NbLED_ON; //nombre de led allumées sur la barette
   int brightness;
 
   public :
@@ -38,11 +39,11 @@ class LED {
   int getNbLED_ON ();
   int getbrightness ();
 
-  void setbrightness(int b);
+  void setbrightness(int b); //une foi initialisé, on ne touche plus à l'intensité lumineuse
   void setNbLED_ON(int nb);
   void setbarette(int nb,char c);
 
-  virtual void refresh();
+  virtual void refresh(); //définition de refresh() propre à la barette
 };
 
 //ECRAN LCD
@@ -51,7 +52,7 @@ class ecran_LED : public LED {
   private :
   int columns;
   int rows;
-  String message;
+  String message;//message à afficher
   rgb_lcd lcd;
   public :
 
@@ -62,7 +63,7 @@ class ecran_LED : public LED {
   void setecran (String m,char c);
   void setdim (int L,int l);
 
-  virtual void refresh();
+  virtual void refresh();//définition de refresh() propre à l'écran
   };
 
 #endif
