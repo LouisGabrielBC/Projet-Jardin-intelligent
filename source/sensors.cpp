@@ -1,4 +1,4 @@
-#include "sensors.h"
+%#include "sensors.h"
 
 #include "DHT.h"
 
@@ -17,11 +17,11 @@
     void temperature_sensor::init(){ Wire.begin();dht.begin();}
     void temperature_sensor::actualise_sensor(){
       float temp_hum_val[2] = {0};
-      if (!dht.readTempAndHumidity(temp_hum_val)) {
+      if (!dht.readTempAndHumidity(temp_hum_val)) { //re
       temperature_C = temp_hum_val[1];
       humidity_rate = temp_hum_val[0];}
       else{
-        temperature_C = 99;// exeption à mettre
+        humidity_rate = 99;// on a pas réussit à mettre une exeption avec arduino, pour signalé un problème on met le taux d'humidité à 99%
       }
     }
     float temperature_sensor::getvalue_sensorT(){
