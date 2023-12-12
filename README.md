@@ -1,5 +1,5 @@
 # Projet Jardin Intelligent
-![jardin_intelligent](jardin_intelligent.png)
+![jardin_intelligent](jardin_intelligent.jpeg)
 ## Librairies utilisées :
   -Grove_Temperature_And_Humidity_Sensor : https://github.com/Seeed-Studio/Grove_Temperature_And_Humidity_Sensor  
   -SEEED_LED_STRIP : https://github.com/Seeed-Studio/Seeed_Led_Strip  
