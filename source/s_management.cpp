@@ -17,10 +17,10 @@
   }
   void s_management::LEDmanagement(){
     sensorTH->actualise_sensor();
-    if (sensorTH->getvalue_sensorT()<10.0){barette->setNbLED_ON(1);}
-    else if (sensorTH->getvalue_sensorT()>30.0){barette->setNbLED_ON(NUMPIXELS);}
+    if (sensorTH->getvalue_sensorT()<10.0){barette->setNbLED_ON(1);} //si la température est inferieure à 10° on met une led allumé 
+    else if (sensorTH->getvalue_sensorT()>30.0){barette->setNbLED_ON(NUMPIXELS);}//si la température est suprieure à 30° on met toutes les led allumées
     else{
-      int a = (int)((sensorTH->getvalue_sensorT()-10)/2.5);
+      int a = (int)((sensorTH->getvalue_sensorT()-10)/2.5); //dans le cas intermédiaire on en allume un pixel  pour 2,5°  
       barette->setNbLED_ON(a+1);
     }
     if ((sensorTH->getvalue_sensorT())<(pl->getTmin())){barette->setcolor(blue);}
