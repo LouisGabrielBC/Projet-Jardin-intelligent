@@ -2,6 +2,8 @@
 #define Plantes_h
 #include <Arduino.h>
 
+//la classe plante représente la plante à arroser, on lui met en atribue un nom,un type,des températures et des humidités significatives pour elle ( min et max )
+
 class plante {
     protected :
       String nom;
@@ -20,7 +22,8 @@ class plante {
       String gettype();
 
   };
-  
+//On distingue 3 types de plantes : Tropicales,Arides et modérées avec chacune des paramètre par défaults mais personalisables
+
   class P_Tropical : public plante {
     public :
       P_Tropical();
