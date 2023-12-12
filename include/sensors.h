@@ -21,10 +21,11 @@
 #define  TempHumsensorPin      D5
 #define  DHT_TYPE              DHT11
 
+//les classes sensors envoient aux classes s_mangement et m_management les valeurs de température et d'humidité de l'environement de la plante
 
 class sensor {
     public:
-    virtual void actualise_sensor();
+    virtual void actualise_sensor(); //on actualise le sensor avec une nouvelle valeur
 };
 
 class moisture_sensor : public sensor{
